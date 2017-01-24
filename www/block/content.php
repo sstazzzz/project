@@ -12,7 +12,6 @@
 				<div class="viewgoodsfull" style="display: none"></div>
 				<div class="viewpagination" style="display: none;" ></div>
 			</div>
-			
 			<div class="registration" style="display: none"/>
 			Регистрация нового пользователя!
 			<p></p>
