@@ -30,19 +30,6 @@ a:active, a:hover { color: #fe831b; text-decoration: underline; }
 	border-bottom: 1px dashed #000;
 }
 
-/*.rc_btn_01 a {
-	display: block;
-	width: 120px;
-	height: 25px;
-	padding: 5px 0 0 0;
-	font-size: 12px;
-	text-align: center;
-	color: #000000;
-	text-decoration: none;
-	border: none;
-	background: url(images/templatemo_button_01.png) no-repeat;
-}*/
-
 /*Обложка  */
 #templatemo_wrapper_outer {
 	width: 1180px;;
