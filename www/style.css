@@ -8,7 +8,6 @@ body{
 	background: #262425;
 	overflow-y: scroll;
 }
- /*font-weight: normal; */
 a:link, a:visited { color: #FFFFFF; text-decoration: none; font-size: 17px; }
 a:active, a:hover { color: #fe831b; text-decoration: underline; }
 .cleaner { clear: both; width: 100%; height: 0px; font-size: 0px;  }
@@ -31,7 +30,7 @@ a:active, a:hover { color: #fe831b; text-decoration: underline; }
 	border-bottom: 1px dashed #000;
 }
 
-.rc_btn_01 a {
+/*.rc_btn_01 a {
 	display: block;
 	width: 120px;
 	height: 25px;
@@ -42,53 +41,48 @@ a:active, a:hover { color: #fe831b; text-decoration: underline; }
 	text-decoration: none;
 	border: none;
 	background: url(images/templatemo_button_01.png) no-repeat;
-}
-
+}*/
 
 /*Обложка  */
 #templatemo_wrapper_outer {
 	width: 1180px;;
 	margin: 0 auto;
 }
-
 #templatemo_wrapper_inner {
-	/*width: 280px;*/
 	width: 1180px;
-	/*width: 100%;*/
 	margin: 0 auto;
 	padding: 0 5px;
 	background: #262425;
 }
 
-
 /* Вывод шапки и меню */
-#templatemo_banner {
+#templatemo_banner{
 	width: 1180px;
 	height: 100px;
 	background: url(images/logostaz.png)  no-repeat;
 }
-#textlogo {
+#textlogo{
 	font-size: 30px;
 	color: #fe831b;
 }
-#templatemo_menu {
+#templatemo_menu{
 	width: 1180
 	height: 45px;
 	padding: 0 220px;
 }
 
-#templatemo_menu ul {
+#templatemo_menu ul{
 	width: 100%;
 	margin: 0px;
 	padding: 20px 0 0 15px;
 	list-style: none;
 }
 
-#templatemo_menu ul li {
+#templatemo_menu ul li{
 	display: inline;
 }
 
-#templatemo_menu ul li a {
+#templatemo_menu ul li a{
 	float: left;
 	padding: 0 20px;
 	font-size: 16px;
@@ -138,7 +132,7 @@ a:active, a:hover { color: #fe831b; text-decoration: underline; }
 	line-height: normal;
 	background: url(images/btn3.png);
 }
-#search_button, #search_price {
+#search_button, #search_price{
 	outline: none;
 	float: left;
 	width: 60px;
@@ -151,22 +145,18 @@ a:active, a:hover { color: #fe831b; text-decoration: underline; }
 	background: url(images/btn3.png);
 }
 
-
 /*Левая боковая панель  */
-table.left_side_bar 
-{
+table.left_side_bar{
 	float: left;
 	width: 220px;
 	padding: 20px 19px 0 19px;
 	background: #1b1919;
 	border: 1px solid #fe831b;
 }
-.left_side_bar ul
-{
+.left_side_bar ul{
 	margin: 0px;
 	padding: 0px;
 }
-
 .left_side_bar ul li {
 	margin: 0px;
 	padding: 0 0 0 0;
@@ -187,7 +177,6 @@ table.left_side_bar
 }
 .left_side_bar form {
 	width: 180px;
-	/*height: 300px;*/
 	margin: 0px;
 	padding: 0px;
 }
@@ -204,9 +193,8 @@ table.left_side_bar
 	color:  #FF0012;
 	text-align: center;
 }
-.auth
-{
-height: 102.4px;
+.auth{
+	height: 102.4px;
 }
 .registration
 {
@@ -222,7 +210,6 @@ height: 102.4px;
 .price{
 	text-align: center;
 	font-size: 15px;
-	/*color: #F6B436;*/
 	color: #fe831b;
 }
 #linktext,.infogoods
@@ -236,17 +223,9 @@ height: 102.4px;
 .templatemo_content {
 	float: left;
 	width: 700px;
-	/*height: 100px;*/
 	padding: 20px 10px 0 10px;
-	/*background: #1b1919;*/
-	/*background: #90969a ;*/
-	/*background: #90969a;*/
-	/*background-size: 700px 500px;   */
-	/*border: 1px solid #363434;*/
-	/*border: 0px solid #F6B436;*/
 }
 .goods-container {
-	/*float: left;*/
 	width: 700px;
 	margin: 0;
 	clear: both;
@@ -255,8 +234,6 @@ height: 102.4px;
 {
 	font-size: 14px;
 	color: #F6B436;
-		/*height: 100px;*/
-	/*padding: 1px 1px 1px 20px;*/
 }
 .viewpagination
 {
@@ -273,9 +250,7 @@ height: 102.4px;
 	width: 50%;
 	padding: 0px 25px;
 	text-align: left;
-	/*clear: both;*/
 	clear: both;
-	/*height: 310px;*/
 }
 .description{
 font-size: 14px;

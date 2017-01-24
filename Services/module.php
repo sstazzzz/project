@@ -6,10 +6,10 @@ class CConnectDataBase
 
     public function __construct()
     {
-        $db_host = 'localhost';        // Сервер
-        $db_user = 'root';    // Имя пользователя
-        $db_password = '123';    // Пароль пользователя
-        $db_name = 'test';            // Имя базы данных
+        $db_host = 'localhost';       
+        $db_user = 'root';    
+        $db_password = '123';  
+        $db_name = 'test';           
 
         $connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
         $query = mysqli_query($connection, "set names utf8");
@@ -20,7 +20,6 @@ class CConnectDataBase
 
 class InDataBase
 {
-
     function GetGoods()
     {
         $connection = new CConnectDataBase();
@@ -142,7 +141,6 @@ class InDataBase
         if(mysqli_num_rows($query) == 0)	{
             return false;
         }
-
         while ($myrow = mysqli_fetch_array($query)) {
             $categoryarray[] = array(
                 'id' => ($myrow["id"]),
@@ -157,12 +155,9 @@ class InDataBase
 
     function SearchSite($name,$slider,$sliderTo)
     {
-
-
         $connection = new CConnectDataBase();
         $connection = $connection->Connection;
         $query = mysqli_query($connection, "set names utf8");
-// SELECT * FROM `goods` WHERE `name` LIKE '%ш%' AND `price` between 300 and 1000
 
         if($slider>0){
             $sql = "SELECT * FROM `goods` WHERE `name` LIKE '%$name%' AND price BETWEEN '$slider' AND '$sliderTo'  ";
@@ -170,8 +165,6 @@ class InDataBase
         else
         {
             $sql = "SELECT * FROM `goods` WHERE `name` LIKE '%$name%' ";
-        
-
         }    
 
         error_log($sql);

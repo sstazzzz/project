@@ -1,13 +1,9 @@
 var searchname = $('#searchname').val();
-  console.log("event",searchname);
-
-  $('.textfirst').hide();
-  $('.registration').hide();
-  $('.viewdevelopment').hide();
-  // $('.first').removeClass('current')
-  // $('.goods').addClass('current')
-  $('.viewgoods').html(' ');
-  $('.viewgoods').show();
+$('.textfirst').hide();
+$('.registration').hide();
+$('.viewdevelopment').hide();
+$('.viewgoods').html(' ');
+$('.viewgoods').show();
 
   dp.Request('SearchSite', {searchname: searchname},function (_datasearch) 
   {

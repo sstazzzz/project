@@ -3,7 +3,6 @@
 		<td><div id="linktext"><?php echo $linktext;  ?></div>
 		</td>
 	</tr>
-
 	<tr>
 		<td>
 			<div class="goods-container">
@@ -33,16 +32,7 @@
 			</div>
 		</td>
 	</tr>
-	<tr>
-	
-
-	</tr>
-
 </table>
-<!-- <div class="viewgoodsfull" style="display: none"></div> -->
-
-
-
 <div class="cleaner"></div>
 </div>
 </div>

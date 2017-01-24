@@ -53,7 +53,7 @@ if (property_exists($request, 'Function'))
         $result = new InDataBase();
         $result = $result->GetGoodsid($request->Data->id);
     }
-else if ($function == "GetGoodsCategory") {
+    else if ($function == "GetGoodsCategory") {
         $statusCode = 200;
         require_once("../Services/module.php");
         $result = new InDataBase();
@@ -64,14 +64,13 @@ else if ($function == "GetGoodsCategory") {
             require_once ("../Services/module.php");
             $result = new InDataBase();
             $result = $result->Page();
-        }
-else if ($function == "Pagination"){
+    }
+    else if ($function == "Pagination"){
             $statusCode = 200;
             require_once ("../Services/module.php");
             $result = new InDataBase();
             $result = $result->Pagination();
         }
-
     else if ($function == "GetCategory"){
         $statusCode = 200;
         require_once ("../Services/module.php");

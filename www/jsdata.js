@@ -44,7 +44,6 @@ $(document).on('click', '#search_button', function(event)
   if (slider>sliderTo)
   {
     $('#texterror').html('Неправильная цена отбора');
-    // event.preventDefault();
     return false;
   }
 
@@ -64,8 +63,7 @@ $(document).on('click', '#search_button', function(event)
       $.each(_datasearch, function (index, item) 
       {
         $('.viewgoods').append('<li>'+item.name+
-        // "<p><img src="+item.images+"></p>"+
-         '<p><a href=/books/goods/?id='+item.id+'><img src='+item.images+"></a></p>"+
+        '<p><a href=/books/goods/?id='+item.id+'><img src='+item.images+"></a></p>"+
         '<p class=price>'+item.price+' руб.</p>'
         );
       });
@@ -80,24 +78,6 @@ $(document).on('click', '#search_button', function(event)
  event.preventDefault();
 });
 
-
-  // dp.Request('Page', {}, function(_page) 
-  // {
-  //   console.log(_page);
-  //   console.log('item', _page);
-  //   var p = parseInt(_page);
-  //   $('.viewpagination').html('');
-  //   if (p > 0)
-  //   {
-  //     var pageHtml = '';
-  //     for (var i = 1; i <= p; i++)
-  //     {
-  //       pageHtml += '<a href="#!!"> '  + i + ' </a>';
-  //     }
-  //     $('.viewpagination').append('<div class="pagination">'+pageHtml+'</div>');
-  //   }
-    
-  // });
 
 $(document).ready(function ()
 {

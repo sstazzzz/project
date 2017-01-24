@@ -1,6 +1,3 @@
-<?php
-
-?>
 <table class="left_side_bar">
 	<tr>
 		<td>
@@ -37,18 +34,10 @@
 				<div id="textprice">До</div>
 				<span id="contentSliderTo"></span>
 				<div id="sliderTo"></div>
-				<!-- <input type="submit" id="" value="Перейти" onclick="window.location.href='/books/search/'  "> -->
 				<p><input type="submit" value="Найти" id="search_button" /></p>
 				<p><div id="texterror"></div></p>
-				<!-- <p><input type="submit" value="Найти" id="search_button" onclick='funsearch(event)'/></p> -->
 			</form>
 			<p><div id="texterror"></div></p>
-
-<!-- 			<form method="post" action="/books/search/">
-			<p><input type="submit" value="Найти" id="search_button"/></p>
-			</form>
- -->
-
 			<div class="margin_bottom_20"></div>
 		</td>
 	</tr>

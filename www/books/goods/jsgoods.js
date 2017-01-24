@@ -2,21 +2,16 @@ var hrefsearch=window.location.search;
 var id= hrefsearch.substr(4);
 $('.title').html('') 
 $('.textfirst').hide();
-  
 $('.registration').hide();
 $('.viewdevelopment').hide();
-// $('.goods-container').html('');
 $('.viewgoodsfull').html('');
 $('.viewgoodsfull').show();
 
 if(hrefsearch.indexOf("?id=") !== -1) 
 {
-  console.log(id);
   $('#linktext').html('');  
-
-dp.Request('GetGoodsid', {id: id},function (_data) 
+  dp.Request('GetGoodsid', {id: id},function (_data) 
   {
-    // console.log(_data);
     if (_data.length > 0) 
     {
       $.each(_data, function (index, item) 
@@ -33,7 +28,6 @@ dp.Request('GetGoodsid', {id: id},function (_data)
     console.log("error", _error);
   }
   );
-
 }
 else
 {
@@ -41,7 +35,6 @@ else
   {
     $('.title').html('')
     $('.title').html('Все товары')
-    // console.log(_data);
     if (_data.length > 0) 
     {
       $.each(_data, function (index, item) 
@@ -62,8 +55,6 @@ else
 
   dp.Request('Page', {}, function(_page) 
   {
-    // console.log(_page);
-    // console.log('item', _page);
     var p = parseInt(_page);
     $('.viewpagination').html('');
     if (p > 0)

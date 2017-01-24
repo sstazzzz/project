@@ -7,7 +7,6 @@ $title = "Главная";
  ?>
   </head>
 <?php
- 
 require_once('/block/menu.php');
 require_once('/block/leftsidebar.php');
 $linktext = "Главная";
