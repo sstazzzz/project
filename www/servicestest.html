@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="/js/libs/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery.json-2.2.min.js"></script>
+    <script type="text/javascript" src="/js/datapoint.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<style>
+    body {font-family: tahoma; padding: 0; margin: 0; overflow: hidden;}
+    span {border: 0px solid #aaa; display: block; padding: 0px;}
+    #func_list>div {cursor: pointer; font-size: 12px;}
+    div {padding-left: 5px; font-size: 12px;}
+    #dumper div {padding-left: 20px;}
+    .answer {border: 1px solid #bbb; overflow: auto;}
+    td {vertical-align: top;}
+    table {position: absolute; top: 0px; bottom: 0px;width: 100%; height: 100%; border: 0; border-collapse:collapse;}
+    #func_list {background-color: #eee;}
+    #dumper {}
+    .block div {display: block; font-size: 16px;}
+    .block div:hover {text-decoration: underline;}
+</style>
+<body>
+<div id="func_list" style="position: fixed; top: 0; left: 0; width: 400px; height: 700px; bottom: 0; overflow-y: auto; border-right: 1px solid black;">
+    <h1>Function</h1>
+    <div id="func_list_data"></div>
+</div>
+<div id="dumper"  style="position: fixed; top: 0; left: 421px; right: 0px; height: 700px; bottom: 20px; overflow-y: auto; "></div>
+</body>
+</html>
+<script type="text/javascript">
+    function SetBlocksHeight() {
+        var windowHeight = $(window).height();
+        $('#func_list').height(windowHeight);
+        $('#dumper').height(windowHeight);
+    }
+    SetBlocksHeight();
+
+    $(window).on('resize', function(){
+        SetBlocksHeight();
+    });
+
+    var dpUrl = "/datapoint.php";
+    var dp = new ODataPointGate(dpUrl);
+
+    var Methods = {
+        'Test' : [
+            {name: 'Регистрация', fnc: function () {dp.Request('RegisterUser',
+                    {
+                        Login: 'Stas',
+                        Password: '1234'
+                    }
+                    , Log, Log);} },
+            {name: 'Авторизация', fnc: function () {dp.Request('Authorization',
+                    {
+                        Login: 'Stas',
+                        Password: '1234'
+                    }
+                    , Log, Log);} },
+            {name: 'Добавить список желаемых покупок', fnc: function () {dp.Request('WishList',
+                    {
+                        idgoods: '2',
+                        iduser: '2'
+                    }
+                    , Log, Log);} },
+            {name: 'Отобразить список желаемых покупок', fnc: function () {dp.Request('DisplayWishList',
+                    {
+                        iduser: '48'
+                    }
+                    , Log, Log);} },
+            {name: 'Удалить из списка желаемых покупок', fnc: function () {dp.Request('DelWishList',
+                    {
+                        iduser: '2',
+                        idgoods: '2'
+                    }
+                    , Log, Log);} },
+            {name: 'Поиск товара', fnc: function () {dp.Request('SearchSite',
+                    {
+                        name: 'Девушка'
+                    }
+                    , Log, Log);} },
+            {name: 'Добавить в корзину', fnc: function () {dp.Request('AddTrash',
+                    {
+                        iduser: '2',
+                        idgoods: '4',
+                        count:  '3'
+                    }
+                    , Log, Log);} },
+            {name: 'Удалить из корзины', fnc: function () {dp.Request('DelTrash',
+                    {
+                        iduser: '2',
+                        idgoods: '5'
+                    }
+                    , Log, Log);} },
+            {name: 'Получить товары', fnc: function () {dp.Request('GetGoods',
+                    {
+                    }
+                    , Log, Log);} },
+            {name: 'Получить товары', fnc: function () {dp.Request('GetGoodsid',
+                    {
+                        id: '2'
+                    }
+                    , Log, Log);} },
+
+            {name: 'Получить категории', fnc: function () {dp.Request('GetCategory',
+                    {
+                    }
+                    , Log, Log);} },
+            {name: 'Получить Per_Page', fnc: function () {dp.Request('Page',
+                    {
+                    }
+                    , Log, Log);} },
+            {name: 'Получить Pagination', fnc: function () {dp.Request('Pagination',
+                    {
+                    }
+                    , Log, Log);} },
+
+
+            {name: 'UpdateRow', fnc: function () {dp.Request('UpdateRow',
+                    {
+                        id: '1',
+                        name: 'Текст самой статьи'
+                    }
+                    , Log, Log);} },
+
+
+        ],
+    };
+
+    function AddMethods() {
+        $.each(Methods, function(_index)
+        {
+            AddTitle('<h3>' + _index + '</h3>');
+            var fncs = this;
+            $.each(fncs, function(){
+                AddFnc(this.name, this.fnc);
+            });
+        });
+        AddBindings();
+    }
+
+    function AddTitle(_name)
+    {
+        $("#func_list_data").append('<div class="block">' + _name + "</div>");
+    }
+
+    function AddFnc(_name, _fnc)
+    {
+        var titles = $("#func_list_data .block");
+        var Div = $("<div>" + _name + "</div>").click(function () {_fnc();});
+        $(titles[titles.length - 1]).append(Div);
+    }
+
+    //Добавляем параметр Token к реквесту
+    function PrepareParams(_r)
+    {
+        if (_r == undefined) {
+            _r = {};
+        }
+        mainDp.Token = TOKEN;
+        openDp.Token = TOKEN;
+        //_r = $.extend({Token: TOKEN}, _r);
+        return _r;
+    }
+
+    function Log(r, _f, _req)
+    {
+        ToOutput(
+                "<span>" +
+                "<h1>" + _f + "</h1>" +
+                "<h2>Request</h2>" +
+                var_dump(_req) +
+                "<h2>Response</h2>" +
+                "<div class='answer'>" + var_dump(r) + "</div>" +
+                "</span>");
+    }
+
+    function ToOutput(_text)
+    {
+        $("#dumper").empty();
+        $("#dumper").append(_text);
+    }
+
+    function var_dump(obj)
+    {
+        var out = "";
+        if(obj && typeof(obj) == "object")
+        {
+            for (var i in obj)
+            {
+                out += i + ": " + var_dump(obj[i]) + "<br>";
+            }
+            out = "<div>{<br>" + out + "}</div>";
+        }
+        else
+        {
+            out = obj;
+        }
+        return out;
+    }
+
+    function AddBindings() {
+        $('.block').off().on('click', 'h3', function(){
+            var elem = $(this).parent('.block');
+            $($(this).parent('.block')).find('div').toggle();
+        });
+    }
+
+    AddMethods();
+</script>

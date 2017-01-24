@@ -1,0 +1,4 @@
+# Удаление логов
+Services/logs/
+
+# txt file docs/*.txt
