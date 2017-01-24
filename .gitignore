@@ -1,4 +1,6 @@
 # Удаление логов
 Services/logs/
-
+Services/help.php
 # txt file docs/*.txt
+
+
